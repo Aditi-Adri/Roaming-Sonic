@@ -1,239 +1,133 @@
-# Roaming Sonic - Travel Management System
+# Roaming Sonic - Travel and Tour Management System
 
-A full-stack MERN application with MVC architecture for managing tours, hotels, guides, and travel bookings.
+A complete travel and tour management system for Bangladesh built with MERN stack.
+
+## 🎉 Status: READY TO USE!
+
+✅ Backend Server Running on http://localhost:5000  
+✅ Frontend App Running on http://localhost:3000  
+✅ MongoDB Connected Successfully  
+✅ All Authentication Features Working
+
+## 🚀 Quick Start
+
+**Your application is already running!**
+
+1. **Visit Frontend:** http://localhost:3000
+2. **Try Registration:** Click "Get Started" and create an account
+3. **Test Login:** Use your credentials to log in
+4. **API Docs:** See SETUP_GUIDE.md for all endpoints
+
+## Features
+
+### User Roles
+- **Tourist/User**: Book tickets, hotels, join tours, hire guides
+- **Hotel/Resort Owner**: Manage properties and bookings
+- **Admin**: Manage all aspects including buses, hotels, tours, and guides
+- **Guide**: Create profile and manage tour services
+
+### Key Features
+- Online ticket booking with PDF generation
+- Hotel/Resort booking system
+- Group tour management
+- Guide hiring system
+- Rating and review system
+- Advance search and filters
+- Coupon and discount system
+- Referral program (10% discount for 5 referrals)
+- Dynamic pricing and seasonal discounts
+- Wishlist functionality
+- Currency converter for foreign tours
+- Smart Budget Estimator
+- Lost & Found Assistance
+- Community Q&A Forum
+- Multiple payment options (Cash, bKash, Nagad)
+- Multi-stop journey selection
 
 ## Tech Stack
-
 - **Frontend**: React.js
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
+- **Architecture**: MVC (Model-View-Controller)
 - **Authentication**: JWT (JSON Web Tokens)
 
-## Project Structure
-
-```
-ROAMING_SONIC/
-├── backend/
-│   ├── config/
-│   │   └── db.js              # Database configuration
-│   ├── controllers/
-│   │   └── authController.js  # Authentication logic
-│   ├── middleware/
-│   │   └── auth.js            # JWT verification
-│   ├── models/
-│   │   └── User.js            # User schema
-│   ├── routes/
-│   │   └── authRoutes.js      # Authentication routes
-│   ├── .env                   # Environment variables
-│   ├── server.js              # Express server
-│   └── package.json
-│
-└── frontend/
-    ├── src/
-    │   ├── components/
-    │   │   └── ProtectedRoute.js
-    │   ├── context/
-    │   │   └── AuthContext.js
-    │   ├── pages/
-    │   │   ├── Login.js
-    │   │   ├── Register.js
-    │   │   ├── TouristDashboard.js
-    │   │   ├── HotelOwnerDashboard.js
-    │   │   ├── AdminDashboard.js
-    │   │   └── GuideDashboard.js
-    │   ├── services/
-    │   │   └── api.js
-    │   └── App.js
-    └── package.json
-```
-
-## Features Implemented
-
-### Authentication System
-- ✅ User registration with role selection
-- ✅ User login with JWT authentication
-- ✅ Password hashing with bcrypt
-- ✅ Role-based access control (Tourist, Hotel Owner, Admin, Guide)
-- ✅ Protected routes with JWT verification
-- ✅ Role-based dashboard redirection
-
-### User Roles
-1. **Tourist/User** - Can book tours, hotels, buses
-2. **Hotel/Resort Owner** - Manage hotel listings
-3. **Website Admin** - Manage all resources
-4. **Guide** - Manage profile and tours
-
-## Setup Instructions
+## Installation
 
 ### Prerequisites
 - Node.js (v14 or higher)
-- MongoDB installed locally or MongoDB Atlas account
-- npm or yarn package manager
+- MongoDB (local or Atlas)
+- npm or yarn
 
 ### Backend Setup
+1. Install backend dependencies:
+   ```bash
+   npm install
+   ```
 
-1. Navigate to backend folder:
-```bash
-cd backend
-```
+2. Create `.env` file in root directory:
+   ```
+   PORT=5000
+   MONGODB_URI=your_mongodb_connection_string
+   JWT_SECRET=your_secret_key
+   ```
 
-2. Install dependencies (already done):
-```bash
-npm install
-```
-
-3. Configure environment variables:
-   - Open `.env` file
-   - Update `MONGODB_URI` if needed (default: mongodb://localhost:27017/roaming_sonic)
-   - Change `JWT_SECRET` for production
-
-4. Start MongoDB:
-   - Open MongoDB Compass
-   - Or start MongoDB service
-
-5. Run the backend server:
-```bash
-npm run dev
-```
-   - Server runs on http://localhost:5000
+3. Start backend server:
+   ```bash
+   npm run dev
+   ```
 
 ### Frontend Setup
+1. Navigate to frontend directory and install dependencies:
+   ```bash
+   cd frontend
+   npm install
+   ```
 
-1. Open a new terminal and navigate to frontend:
+2. Start React development server:
+   ```bash
+   npm start
+   ```
+
+### Run Full Stack
 ```bash
-cd frontend
+npm run dev:full
 ```
 
-2. Install dependencies (already done):
-```bash
-npm install
+## Project Structure
 ```
-
-3. Start the React development server:
-```bash
-npm start
+roaming-sonic/
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   └── server.js
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── context/
+│   │   └── App.js
+│   └── public/
+└── package.json
 ```
-   - Frontend runs on http://localhost:3000
 
 ## API Endpoints
 
-### Authentication Routes
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login user
-- `GET /api/auth/me` - Get current user (Protected)
-- `POST /api/auth/logout` - Logout user (Protected)
+### Authentication
+- POST /api/auth/register - Register new user
+- POST /api/auth/login - User login
 
-### Request Examples
+### Users
+- GET /api/users/profile - Get user profile
+- PUT /api/users/profile - Update user profile
 
-**Register:**
-```json
-POST /api/auth/register
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "password123",
-  "role": "tourist",
-  "phoneNumber": "1234567890"
-}
-```
-
-**Login:**
-```json
-POST /api/auth/login
-{
-  "email": "john@example.com",
-  "password": "password123"
-}
-```
-
-## Testing the Application
-
-1. **Start MongoDB** (via Compass or service)
-
-2. **Start Backend:**
-```bash
-cd backend
-npm run dev
-```
-
-3. **Start Frontend (in new terminal):**
-```bash
-cd frontend
-npm start
-```
-
-4. **Test Registration:**
-   - Go to http://localhost:3000
-   - Click "Register"
-   - Fill in the form and select a role
-   - Submit
-
-5. **Test Login:**
-   - Go to login page
-   - Enter credentials
-   - You'll be redirected to role-specific dashboard
-
-## Database Schema
-
-### User Model
-```javascript
-{
-  name: String,
-  email: String (unique),
-  password: String (hashed),
-  role: String (tourist/hotel_owner/admin/guide),
-  photo: String,
-  phoneNumber: String,
-  isActive: Boolean,
-  createdAt: Date,
-  updatedAt: Date
-}
-```
-
-## Security Features
-- Password hashing with bcrypt
-- JWT token authentication
-- Protected routes
-- Role-based authorization
-- HTTP-only cookies support
-- CORS enabled for frontend
-
-## Next Steps
-- Implement dashboard features for each role
-- Add hotel management
-- Add bus ticket booking
-- Add tour packages
-- Add guide profiles
-- Add review system
-- Add payment integration
-- Add PDF ticket generation
-
-## Environment Variables
-
-```
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/roaming_sonic
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
-JWT_EXPIRES_IN=7d
-NODE_ENV=development
-```
-
-## Common Issues
-
-1. **MongoDB Connection Error:**
-   - Ensure MongoDB is running
-   - Check connection string in .env
-
-2. **CORS Error:**
-   - Backend and frontend must run on specified ports
-   - Check CORS configuration in server.js
-
-3. **JWT Error:**
-   - Ensure JWT_SECRET is set in .env
-   - Check token in browser localStorage
+(More endpoints to be added as features are developed)
 
 ## Contributing
-This is a course project for learning MERN stack development.
+This is a student project for educational purposes.
 
 ## License
-MIT
+ISC
