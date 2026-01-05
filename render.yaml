@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: roaming-sonic-backend
+    runtime: node
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGODB_URI
+        value: mongodb+srv://aditiroyadri_db_user:a5kF773HEHtF6CXk@roaming-sonic.sxkjfk2.mongodb.net/roaming-sonic?appName=roaming-sonic
+      - key: JWT_SECRET
+        value: roaming-sonic-super-secret-key-change-this-in-production-2025
+      - key: FRONTEND_URL
+        sync: false
