@@ -55,7 +55,7 @@ A complete travel and tour management system for Bangladesh built with MERN stac
 
 ### Prerequisites
 - Node.js (v14 or higher)
-- MongoDB (local or Atlas)
+- MongoDB (local installation)
 - npm or yarn
 
 ### Backend Setup
