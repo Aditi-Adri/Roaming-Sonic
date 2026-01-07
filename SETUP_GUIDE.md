@@ -76,15 +76,12 @@ The `.env` file is configured with:
 #### Prerequisites
 Make sure you have installed:
 - Node.js (v14 or higher)
-- MongoDB (running locally or MongoDB Atlas account)
+- MongoDB (running locally)
 
 #### Step 1: Start MongoDB
-If using local MongoDB:
 ```powershell
 # MongoDB should be running on mongodb://localhost:27017
 ```
-
-If using MongoDB Atlas, update the MONGODB_URI in `.env` file.
 
 #### Step 2: Start Backend Server
 ```powershell
@@ -225,7 +222,7 @@ To continue building the project, you can add:
 #### MongoDB Connection Error
 - Ensure MongoDB is running locally
 - Check MONGODB_URI in .env file
-- For MongoDB Atlas, whitelist your IP address
+- Verify MongoDB service is started
 
 #### Port Already in Use
 - Stop other processes on port 5000 or 3000
